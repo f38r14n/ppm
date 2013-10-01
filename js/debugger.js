@@ -1,1 +1,1 @@
-var fb = new FingerBlast('body');
+//var fb = new FingerBlast('body');

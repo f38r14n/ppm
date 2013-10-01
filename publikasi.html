@@ -17,19 +17,19 @@
 <nav class="bar-tab">
   <ul class="tab-inner">
     <li class="tab-item">
-      <a href="index.html">
+      <a href="index.html" data-transition="fade">
         <i class="tab-icon icon-home icon-large"></i>
         <div class="tab-label">Beranda</div>
       </a>
     </li>
     <li class="tab-item">
-      <a href="tuntunan.html">
+      <a href="tuntunan.html" data-transition="fade">
         <i class="tab-icon icon-moon icon-large"></i>
         <div class="tab-label">Tuntunan</div>
       </a>
     </li>
     <li class="tab-item">
-      <a href="agenda.html">
+      <a href="agenda.html" data-transition="fade">
         <i class="tab-icon icon-time icon-large"></i>
         <div class="tab-label">Agenda</div>
       </a>
@@ -41,7 +41,7 @@
       </a>
     </li>
     <li class="tab-item">
-      <a href="lainnya.html">
+      <a href="lainnya.html" data-transition="fade">
         <i class="tab-icon icon-ellipsis-horizontal icon-large"></i>
         <div class="tab-label">Lainnya</div>
       </a>
@@ -50,7 +50,20 @@
 </nav>
 <div class="content">
 publikasi
+
+<div id="online">
+<p class="event listening">Offline</p>
+<p class="event received">Online</p>
 </div>
-<script src="js/ratchet.js"></script>
+
+</div>
+<script src="js/phonegap.js"></script>
+<!-- <script src="js/ratchet.js"></script> -->
+<script src="js/fingerblast.js"></script>
+<script src="js/app.js"></script>
+<script type="text/javascript">
+  app.initialize();
+</script>
+<script src="js/debugger.js"></script>
     </body>
 </html>
