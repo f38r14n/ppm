@@ -1,0 +1,1 @@
+//var fb = new FingerBlast('body');

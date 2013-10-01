@@ -1,0 +1,7 @@
+body{-webkit-user-select: none;}
+.tab-item a i{
+	color: #fff;
+}
+.tab-item, .active a i{
+	color: #0099ff;
+}
