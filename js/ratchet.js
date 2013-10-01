@@ -77,7 +77,7 @@
  * ---------------------------------- */
 
 !function () {
-
+	
   var noop = function () {};
 
 
@@ -221,7 +221,7 @@
         title      : activeObj.title,
         timeout    : activeObj.timeout,
         transition : transition,
-        ignorePush : true
+        ignorePush : false
       });
     }
 
@@ -262,7 +262,7 @@
 
     if (xhr && xhr.readyState < 4) {
       xhr.onreadystatechange = noop;
-      xhr.abort()
+	  xhr.abort()
     }
 
     xhr = new XMLHttpRequest();
@@ -270,8 +270,8 @@
     xhr.setRequestHeader('X-PUSH', 'true');
 
     xhr.onreadystatechange = function () {
-      if (options._timeout) clearTimeout(options._timeout);
-      if (xhr.readyState == 4) xhr.status == 200 ? success(xhr, options) : failure(options.url);
+	  if (options._timeout) clearTimeout(options._timeout);
+      if (xhr.readyState == 4) xhr.status == 200 || (xhr.status == 0 && options.url.indexOf('file:///') != -1) ? success(xhr, options) : failure(options.url);
     };
 
     if (!PUSH.id) {
@@ -287,7 +287,7 @@
     if (options.timeout) {
       options._timeout = setTimeout(function () {  xhr.abort('timeout'); }, options.timeout);
     }
-
+	
     xhr.send();
 
     if (xhr.readyState && !options.ignorePush) cachePush();
@@ -298,7 +298,8 @@
   // =================
 
   var success = function (xhr, options) {
-    var key;
+
+	var key;
     var barElement;
     var data = parseXHR(xhr, options);
 
@@ -330,7 +331,7 @@
   };
 
   var failure = function (url) {
-    throw new Error('Could not get: ' + url)
+	throw new Error('Could not get: ' + url)
   };
 
 
